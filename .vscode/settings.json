@@ -1,0 +1,34 @@
+{
+    "sqltools.connections": [
+        {
+            "pgOptions": {
+                "connectionTimeoutMillis": 0,
+                "idleTimeoutMillis": 0,
+                "max": 20
+            },
+            "ssh": "Disabled",
+            "previewLimit": 50,
+            "server": "localhost",
+            "port": 5433,
+            "driver": "PostgreSQL",
+            "username": "postgres",
+            "database": "sql_class_2_db",
+            "name": "tickCutpass"
+        },
+        {
+            "pgOptions": {
+                "connectionTimeoutMillis": 0,
+                "idleTimeoutMillis": 0,
+                "max": 20
+            },
+            "ssh": "Disabled",
+            "previewLimit": 50,
+            "server": "localhost",
+            "port": 5433,
+            "driver": "PostgreSQL",
+            "username": "postgres",
+            "database": "sql_class_2_db",
+            "name": "ticket_booking_system"
+        }
+    ]
+}

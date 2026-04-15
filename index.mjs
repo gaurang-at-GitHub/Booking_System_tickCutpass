@@ -6,7 +6,7 @@
 // INSERT INTO seats (isbooked)
 // SELECT 0 FROM generate_series(1, 20);
 
-import express from "express";
+// import express from "express";
 import pg from "pg";
 import { dirname } from "path";
 import { fileURLToPath } from "url";
@@ -21,18 +21,18 @@ const port = process.env.PORT || 8080;
 // If you pick one connection out of the pool and release it
 // the pooler will keep that connection open for sometime to other clients to reuse
 const pool = new pg.Pool({
-  host: "localhost",
-  port: 5433,
-  user: "postgres",
-  password: "postgres",
-  database: "sql_class_2_db",
+  host: process.env.DB_HOST,
+  port: process.env.DB_PORT,
+  user: process.env.DB_USER,
+  password: process.env.DB_PASSWORD,
+  database: process.env.DB_NAME,
   max: 20,
   connectionTimeoutMillis: 0,
   idleTimeoutMillis: 0,
 });
 
-const app = new express();
-app.use(cors());
+// const app = new express();
+// app.use(cors());
 
 app.get("/", (req, res) => {
   res.sendFile(__dirname + "/index.html");
@@ -83,4 +83,4 @@ app.put("/:id/:name", async (req, res) => {
   }
 });
 
-app.listen(port, () => console.log("Server starting on port: " + port));
+// app.listen(port, () => console.log("Server starting on port: " + port));
