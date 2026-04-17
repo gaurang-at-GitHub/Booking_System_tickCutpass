@@ -18,3 +18,14 @@ const login = async(req, res)=>{
     const user = await authService.login(req.body)
 }
 
+const logout = async(req, res) => {
+
+}
+
+const forgotPassword = async(req, res) => {
+
+}
+
+const changePassword = async(req, res) =>{
+    
+}
