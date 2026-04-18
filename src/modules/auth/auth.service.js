@@ -162,7 +162,7 @@ const forgotPassword = async (email) => {
         "SELECT * FROM users WHERE email = $1",
         [email]
     )
-    if (existing.rows.length === 0) throw new Error("If this email exists, a reset link has been sent to the email")
+    if (existing.rows.length === 0){ return ; }
     const user = existing.rows[0]
     if (existing.rows.length > 0) {
         const { rawResetToken, hashedResetToken } = generateResetToken()
@@ -197,7 +197,7 @@ const resetPassword = async (rawResetToken, newPassword)=>{
         //if hashedResetToken did not expire, take the password that came & hash it using bcrypt.hash and save the new password, also deleting the hashedResetToken from the DB.
 }
 
-const changePassword = async (userId, currentPassword, newPassword) => {
+const changePassword = async (userId, { currentPassword, newPassword }) => {
     const existing = await Pool.query(
         "SELECT * FROM users WHERE id = $1",
         [userId]
